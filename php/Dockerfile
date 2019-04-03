@@ -2,7 +2,7 @@ FROM php:7.2.4-apache
 
 # Install Hogehoge
 RUN apt-get update && \
-    apt-get install -y libpq-dev libxml2 libxml2-dev libicu-dev git ssl-cert rsyslog cron vim git gnupg
+    apt-get install -y libpq-dev libxml2 libxml2-dev libicu-dev git ssl-cert rsyslog cron vim git gnupg wget
 
 # Install PHP-extentions
 RUN apt-get update && apt-get install -y \
