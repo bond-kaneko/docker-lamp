@@ -1,4 +1,5 @@
 FROM php:7.2.4-apache
+COPY ./000-default.conf /etc/apache2/sites-enabled/
 
 # Install Hogehoge
 RUN apt-get update && \
@@ -30,6 +31,10 @@ RUN EXPECTED_SIGNATURE="$(wget -q -O - https://composer.github.io/installer.sig)
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /composer
 ENV PATH $PATH:/composer/vendor/bin
+
+WORKDIR /var/www/html
+
+RUN composer global require "laravel/installer"
 
 RUN usermod -u 1000 www-data && groupmod -g 1000 www-data
 RUN a2enmod rewrite
