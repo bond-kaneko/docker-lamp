@@ -1,5 +1,5 @@
 FROM php:7.2.4-apache
-COPY ./000-default.conf /etc/apache2/sites-enabled/
+COPY ./000-default.conf /etc/apache2/sites-enabled/000-default.conf
 
 # Install Hogehoge
 RUN apt-get update && \
